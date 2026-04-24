@@ -1,0 +1,1993 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soluções & Diluição — Guia de Estudos</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Nunito:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --lilac: #c084fc;
+            --lilac-light: #e9d5ff;
+            --lilac-pale: #faf5ff;
+            --violet: #7c3aed;
+            --violet-dark: #4c1d95;
+            --teal: #2dd4bf;
+            --teal-dark: #0f766e;
+            --pink: #f472b6;
+            --cream: #fefce8;
+            --bg: #fdf8ff;
+            --text: #2e1065;
+            --text-light: #7e5bba;
+            --white: #ffffff;
+            --card-border: rgba(192,132,252,0.2);
+            --shadow: 0 8px 40px rgba(124,58,237,0.12);
+            --shadow-sm: 0 2px 16px rgba(124,58,237,0.08);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Nunito', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.75;
+        }
+
+        /* ── HERO ── */
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(160deg, #1e1b4b 0%, #3730a3 35%, #6d28d9 65%, #7c3aed 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 80px 20px 60px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Floating molecules */
+        .mol {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.12;
+            animation: float linear infinite;
+        }
+
+        .mol1 {
+            width: 200px;
+            height: 200px;
+            background: var(--lilac);
+            top: -60px;
+            left: -40px;
+            animation-duration: 18s;
+        }
+
+        .mol2 {
+            width: 140px;
+            height: 140px;
+            background: var(--teal);
+            bottom: 10%;
+            right: -30px;
+            animation-duration: 14s;
+            animation-delay: -5s;
+        }
+
+        .mol3 {
+            width: 90px;
+            height: 90px;
+            background: var(--pink);
+            top: 30%;
+            left: 8%;
+            animation-duration: 10s;
+            animation-delay: -3s;
+        }
+
+        .mol4 {
+            width: 60px;
+            height: 60px;
+            background: #a5f3fc;
+            bottom: 20%;
+            left: 20%;
+            animation-duration: 12s;
+            animation-delay: -7s;
+        }
+
+        .mol5 {
+            width: 120px;
+            height: 120px;
+            background: var(--lilac);
+            top: 15%;
+            right: 12%;
+            animation-duration: 16s;
+            animation-delay: -9s;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0) rotate(0deg);
+            }
+
+            50% {
+                transform: translateY(-30px) rotate(180deg);
+            }
+
+            100% {
+                transform: translateY(0) rotate(360deg);
+            }
+        }
+
+        /* grid dots */
+        .hero::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: radial-gradient(rgba(255,255,255,0.08) 1px, transparent 1px);
+            background-size: 32px 32px;
+            pointer-events: none;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            color: #e9d5ff;
+            padding: 7px 20px;
+            border-radius: 50px;
+            font-size: 0.78rem;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            font-weight: 600;
+            margin-bottom: 28px;
+            backdrop-filter: blur(8px);
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(3rem, 8vw, 5.5rem);
+            color: white;
+            line-height: 1.1;
+            margin-bottom: 18px;
+            position: relative;
+            z-index: 1;
+            font-weight: 700;
+        }
+
+            .hero h1 em {
+                font-style: italic;
+                color: #c084fc;
+                display: block;
+            }
+
+        .hero-sub {
+            color: rgba(233,213,255,0.8);
+            font-size: 1.05rem;
+            max-width: 560px;
+            margin: 0 auto 44px;
+            position: relative;
+            z-index: 1;
+            font-weight: 400;
+        }
+
+        .hero-pills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+            position: relative;
+            z-index: 1;
+        }
+
+            .hero-pills a {
+                background: rgba(255,255,255,0.1);
+                border: 1px solid rgba(255,255,255,0.2);
+                color: #e9d5ff;
+                text-decoration: none;
+                padding: 9px 20px;
+                border-radius: 50px;
+                font-size: 0.85rem;
+                font-weight: 600;
+                transition: all 0.25s;
+                backdrop-filter: blur(6px);
+            }
+
+                .hero-pills a:hover {
+                    background: var(--lilac);
+                    color: white;
+                    border-color: var(--lilac);
+                    transform: translateY(-2px);
+                }
+
+        /* ── STICKY NAV ── */
+        .sticky-nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(253,248,255,0.93);
+            backdrop-filter: blur(14px);
+            border-bottom: 1px solid rgba(192,132,252,0.25);
+            padding: 12px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+        }
+
+            .sticky-nav .brand {
+                font-family: 'Cormorant Garamond', serif;
+                font-size: 1.15rem;
+                color: var(--violet-dark);
+                font-weight: 700;
+            }
+
+            .sticky-nav .links {
+                display: flex;
+                gap: 4px;
+                flex-wrap: wrap;
+            }
+
+                .sticky-nav .links a {
+                    color: var(--text-light);
+                    text-decoration: none;
+                    font-size: 0.8rem;
+                    padding: 5px 12px;
+                    border-radius: 20px;
+                    font-weight: 600;
+                    transition: all 0.2s;
+                }
+
+                    .sticky-nav .links a:hover {
+                        background: var(--lilac-light);
+                        color: var(--violet);
+                    }
+
+        /* ── SECTIONS ── */
+        .wrap {
+            max-width: 1020px;
+            margin: 0 auto;
+            padding: 80px 20px;
+        }
+
+        .section-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--lilac-light);
+            color: var(--violet);
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            padding: 5px 16px;
+            border-radius: 50px;
+            margin-bottom: 16px;
+        }
+
+        .section-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(1.9rem, 4vw, 2.7rem);
+            color: var(--violet-dark);
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+
+        .section-sub {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            margin-bottom: 48px;
+            max-width: 620px;
+        }
+
+        .accent-line {
+            width: 56px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--violet), var(--lilac));
+            border-radius: 10px;
+            margin: 12px 0 18px;
+        }
+
+        /* ── CONCEPT CARDS (hero row) ── */
+        .concept-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 16px;
+            margin-bottom: 60px;
+        }
+
+        .concept-card {
+            background: white;
+            border-radius: 18px;
+            padding: 22px 20px;
+            border: 1.5px solid var(--card-border);
+            box-shadow: var(--shadow-sm);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+            .concept-card:hover {
+                transform: translateY(-3px);
+                box-shadow: var(--shadow);
+            }
+
+            .concept-card .icon {
+                font-size: 2rem;
+                margin-bottom: 10px;
+            }
+
+            .concept-card h3 {
+                font-family: 'Cormorant Garamond',serif;
+                color: var(--violet-dark);
+                font-size: 1.05rem;
+                margin-bottom: 6px;
+                font-weight: 700;
+            }
+
+            .concept-card p {
+                font-size: 0.85rem;
+                color: var(--text-light);
+            }
+
+        /* ── TOPIC BLOCK ── */
+        .topic {
+            background: white;
+            border-radius: 24px;
+            box-shadow: var(--shadow);
+            margin-bottom: 56px;
+            overflow: hidden;
+            border: 1px solid var(--card-border);
+        }
+
+        .topic-header {
+            padding: 30px 38px 26px;
+            background: linear-gradient(120deg, var(--lilac-pale) 0%, white 70%);
+            border-bottom: 1px solid var(--lilac-light);
+            display: flex;
+            align-items: center;
+            gap: 18px;
+        }
+
+        .topic-icon {
+            font-size: 2.6rem;
+            flex-shrink: 0;
+        }
+
+        .topic-header h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.85rem;
+            color: var(--violet-dark);
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .topic-header .subtitle {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            margin-top: 4px;
+        }
+
+        .topic-body {
+            padding: 34px 38px;
+        }
+
+        /* ── INFO CHIPS ── */
+        .chip-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 28px;
+        }
+
+        .chip {
+            background: var(--lilac-pale);
+            border: 1px solid rgba(192,132,252,0.3);
+            border-radius: 12px;
+            padding: 10px 16px;
+            min-width: 150px;
+        }
+
+            .chip .cl {
+                font-size: 0.68rem;
+                font-weight: 700;
+                text-transform: uppercase;
+                letter-spacing: 0.1em;
+                color: var(--violet);
+                margin-bottom: 4px;
+            }
+
+            .chip .cv {
+                font-size: 0.9rem;
+                color: var(--text);
+                font-weight: 600;
+            }
+
+        /* ── FORMULA BOX ── */
+        .formula-box {
+            background: linear-gradient(135deg, var(--violet-dark), #5b21b6);
+            color: white;
+            border-radius: 18px;
+            padding: 28px 32px;
+            margin: 24px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+            .formula-box::before {
+                content: '∑';
+                position: absolute;
+                right: -10px;
+                top: -20px;
+                font-size: 8rem;
+                opacity: 0.06;
+                font-family: serif;
+                pointer-events: none;
+            }
+
+            .formula-box .f-label {
+                font-size: 0.75rem;
+                text-transform: uppercase;
+                letter-spacing: 0.12em;
+                color: var(--lilac-light);
+                margin-bottom: 12px;
+                font-weight: 700;
+            }
+
+            .formula-box .f-main {
+                font-family: 'Cormorant Garamond', serif;
+                font-size: clamp(1.6rem, 4vw, 2.4rem);
+                font-weight: 700;
+                color: white;
+                margin-bottom: 10px;
+                line-height: 1.3;
+            }
+
+            .formula-box .f-vars {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 12px;
+                justify-content: center;
+                margin-top: 16px;
+            }
+
+        .fvar {
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.15);
+            border-radius: 8px;
+            padding: 6px 14px;
+            font-size: 0.82rem;
+            color: #e9d5ff;
+        }
+
+        /* ── TABS ── */
+        .tabs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 22px;
+        }
+
+        .tab-btn {
+            background: var(--lilac-pale);
+            border: 1.5px solid rgba(192,132,252,0.3);
+            color: var(--text-light);
+            padding: 8px 18px;
+            border-radius: 50px;
+            font-size: 0.84rem;
+            font-weight: 600;
+            cursor: pointer;
+            font-family: 'Nunito', sans-serif;
+            transition: all 0.2s;
+        }
+
+            .tab-btn.active, .tab-btn:hover {
+                background: var(--violet);
+                color: white;
+                border-color: var(--violet);
+            }
+
+        .tab-panel {
+            display: none;
+        }
+
+            .tab-panel.active {
+                display: block;
+            }
+
+        /* ── DETAIL BLOCK ── */
+        .dblock {
+            background: var(--lilac-pale);
+            border-radius: 14px;
+            padding: 22px 26px;
+            margin-bottom: 16px;
+            border-left: 3px solid var(--lilac);
+        }
+
+            .dblock h4 {
+                font-family: 'Cormorant Garamond', serif;
+                color: var(--violet-dark);
+                font-size: 1.1rem;
+                margin-bottom: 10px;
+                font-weight: 700;
+            }
+
+            .dblock p, .dblock li {
+                font-size: 0.93rem;
+                color: var(--text);
+            }
+
+            .dblock ul {
+                padding-left: 18px;
+            }
+
+                .dblock ul li {
+                    margin-bottom: 6px;
+                }
+
+                    .dblock ul li::marker {
+                        color: var(--lilac);
+                    }
+
+        /* ── STEPS ── */
+        .steps {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .step {
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+        }
+
+        .snum {
+            background: linear-gradient(135deg, var(--violet), var(--lilac));
+            color: white;
+            font-weight: 700;
+            font-size: 0.78rem;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .stext {
+            font-size: 0.93rem;
+            color: var(--text);
+        }
+
+        /* ── EXAMPLE BOX ── */
+        .example-box {
+            background: linear-gradient(135deg, #f0fdf4, #dcfce7);
+            border: 1.5px solid #86efac;
+            border-radius: 16px;
+            padding: 22px 26px;
+            margin: 18px 0;
+        }
+
+            .example-box .ex-label {
+                font-size: 0.72rem;
+                font-weight: 700;
+                text-transform: uppercase;
+                letter-spacing: 0.1em;
+                color: #16a34a;
+                margin-bottom: 10px;
+                display: flex;
+                align-items: center;
+                gap: 6px;
+            }
+
+            .example-box .ex-text {
+                font-size: 0.93rem;
+                color: #166534;
+                line-height: 1.7;
+            }
+
+            .example-box .ex-formula {
+                background: white;
+                border-radius: 10px;
+                padding: 12px 16px;
+                margin: 12px 0;
+                font-family: monospace;
+                font-size: 1rem;
+                color: #15803d;
+                border: 1px solid #bbf7d0;
+                text-align: center;
+            }
+
+        /* ── ALERT BOX ── */
+        .alert-box {
+            background: linear-gradient(135deg, #fff7ed, #ffedd5);
+            border: 1.5px solid #fdba74;
+            border-radius: 14px;
+            padding: 18px 22px;
+            margin: 16px 0;
+            font-size: 0.9rem;
+            color: #9a3412;
+            display: flex;
+            gap: 12px;
+            align-items: flex-start;
+        }
+
+            .alert-box .alert-icon {
+                font-size: 1.3rem;
+                flex-shrink: 0;
+            }
+
+        /* ── SOLUBILITY TABLE ── */
+        .solub-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 12px;
+            margin: 20px 0;
+        }
+
+        .solub-card {
+            border-radius: 14px;
+            padding: 16px;
+            text-align: center;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+            .solub-card.solub {
+                background: #dbeafe;
+                color: #1e40af;
+                border: 1px solid #bfdbfe;
+            }
+
+            .solub-card.insolub {
+                background: #fee2e2;
+                color: #991b1b;
+                border: 1px solid #fca5a5;
+            }
+
+            .solub-card.little {
+                background: #fef9c3;
+                color: #713f12;
+                border: 1px solid #fde68a;
+            }
+
+            .solub-card .sc-label {
+                font-size: 0.7rem;
+                text-transform: uppercase;
+                letter-spacing: 0.1em;
+                margin-bottom: 6px;
+                opacity: 0.7;
+            }
+
+            .solub-card .sc-val {
+                font-size: 1rem;
+            }
+
+        /* ── BIG FORMULA CARD ── */
+        .big-formula {
+            background: linear-gradient(135deg, #1e1b4b, #3730a3);
+            color: white;
+            border-radius: 20px;
+            padding: 32px 36px;
+            text-align: center;
+            margin: 24px 0;
+        }
+
+            .big-formula .bf-title {
+                font-size: 0.78rem;
+                letter-spacing: 0.15em;
+                color: var(--lilac-light);
+                text-transform: uppercase;
+                font-weight: 700;
+                margin-bottom: 16px;
+            }
+
+            .big-formula .bf-formula {
+                font-family: 'Cormorant Garamond', serif;
+                font-size: clamp(1.8rem, 5vw, 2.8rem);
+                font-weight: 700;
+                margin-bottom: 18px;
+                line-height: 1.25;
+            }
+
+        .bf-vars {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+            margin-top: 14px;
+        }
+
+        .bfv {
+            background: rgba(192,132,252,0.2);
+            border: 1px solid rgba(192,132,252,0.4);
+            border-radius: 8px;
+            padding: 7px 14px;
+            font-size: 0.82rem;
+            color: #e9d5ff;
+        }
+
+        /* ── CONCENTRATION VISUAL ── */
+        .conc-visual {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin: 20px 0;
+        }
+
+        .beaker-card {
+            flex: 1;
+            min-width: 140px;
+            background: white;
+            border: 1.5px solid var(--card-border);
+            border-radius: 16px;
+            padding: 18px 14px;
+            text-align: center;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .beaker-svg {
+            width: 60px;
+            height: 80px;
+            margin: 0 auto 10px;
+            display: block;
+        }
+
+        .beaker-card .bc-label {
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--violet-dark);
+            margin-bottom: 4px;
+        }
+
+        .beaker-card .bc-sub {
+            font-size: 0.75rem;
+            color: var(--text-light);
+        }
+
+        /* ── COMPARISON TABLE ── */
+        .compare-wrap {
+            overflow-x: auto;
+            margin-top: 16px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.87rem;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+        }
+
+        thead {
+            background: linear-gradient(135deg, var(--violet-dark), #5b21b6);
+            color: white;
+        }
+
+        th {
+            padding: 14px 16px;
+            text-align: left;
+            font-weight: 700;
+            white-space: nowrap;
+        }
+
+        td {
+            padding: 12px 16px;
+            border-bottom: 1px solid var(--lilac-light);
+            vertical-align: top;
+        }
+
+        tbody tr:nth-child(even) {
+            background: var(--lilac-pale);
+        }
+
+        tbody tr:hover {
+            background: #ede9fe;
+            transition: background 0.2s;
+        }
+
+        /* ── QUIZ ── */
+        #quiz-section {
+            background: linear-gradient(160deg, #0f172a 0%, #1e1b4b 50%, #2e1065 100%);
+            padding: 80px 20px;
+        }
+
+        .quiz-inner {
+            max-width: 820px;
+            margin: 0 auto;
+        }
+
+            .quiz-inner .section-title {
+                color: #e9d5ff;
+            }
+
+            .quiz-inner .section-sub {
+                color: rgba(255,255,255,0.55);
+            }
+
+            .quiz-inner .accent-line {
+                background: linear-gradient(90deg, var(--lilac), var(--teal));
+            }
+
+        .prog-wrap {
+            background: rgba(255,255,255,0.08);
+            height: 6px;
+            border-radius: 10px;
+            margin-bottom: 38px;
+            overflow: hidden;
+        }
+
+        .prog-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--violet), var(--teal));
+            border-radius: 10px;
+            transition: width 0.5s ease;
+            width: 0%;
+        }
+
+        .quiz-q {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(192,132,252,0.25);
+            border-radius: 20px;
+            padding: 28px 32px;
+            margin-bottom: 18px;
+            backdrop-filter: blur(6px);
+        }
+
+            .quiz-q .qn {
+                font-size: 0.72rem;
+                color: var(--lilac-light);
+                font-weight: 700;
+                letter-spacing: 0.12em;
+                text-transform: uppercase;
+                margin-bottom: 10px;
+            }
+
+            .quiz-q .qt {
+                color: white;
+                font-size: 1rem;
+                font-weight: 500;
+                margin-bottom: 20px;
+                line-height: 1.6;
+            }
+
+        .opts {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .opt {
+            background: rgba(255,255,255,0.06);
+            border: 1.5px solid rgba(255,255,255,0.1);
+            color: rgba(255,255,255,0.82);
+            padding: 12px 18px;
+            border-radius: 12px;
+            text-align: left;
+            cursor: pointer;
+            font-family: 'Nunito', sans-serif;
+            font-size: 0.9rem;
+            transition: all 0.2s;
+        }
+
+            .opt:hover:not(:disabled) {
+                background: rgba(192,132,252,0.2);
+                border-color: var(--lilac);
+                color: white;
+            }
+
+            .opt.correct {
+                background: rgba(45,212,191,0.2);
+                border-color: var(--teal);
+                color: #a7f3d0;
+            }
+
+            .opt.wrong {
+                background: rgba(244,114,182,0.18);
+                border-color: var(--pink);
+                color: #fecdd3;
+            }
+
+        .fb {
+            margin-top: 12px;
+            padding: 10px 16px;
+            border-radius: 10px;
+            font-size: 0.87rem;
+            display: none;
+        }
+
+            .fb.show {
+                display: block;
+            }
+
+            .fb.ok {
+                background: rgba(45,212,191,0.15);
+                color: #a7f3d0;
+            }
+
+            .fb.err {
+                background: rgba(244,114,182,0.15);
+                color: #fecdd3;
+            }
+
+        .quiz-result {
+            text-align: center;
+            padding: 50px 20px;
+            display: none;
+        }
+
+            .quiz-result.show {
+                display: block;
+            }
+
+        .res-score {
+            font-family: 'Cormorant Garamond',serif;
+            font-size: 5rem;
+            color: var(--lilac-light);
+            margin: 10px 0;
+            font-weight: 700;
+        }
+
+        .res-msg {
+            color: rgba(255,255,255,0.6);
+            font-size: 1rem;
+            margin-bottom: 30px;
+        }
+
+        .btn-restart {
+            background: linear-gradient(135deg, var(--violet), var(--lilac));
+            color: white;
+            border: none;
+            padding: 14px 36px;
+            border-radius: 50px;
+            font-family: 'Nunito', sans-serif;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.25s;
+            box-shadow: 0 4px 20px rgba(124,58,237,0.4);
+        }
+
+            .btn-restart:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 8px 28px rgba(124,58,237,0.5);
+            }
+
+        /* ── FOOTER ── */
+        footer {
+            background: #0f172a;
+            color: rgba(255,255,255,0.4);
+            text-align: center;
+            padding: 32px 20px;
+            font-size: 0.84rem;
+        }
+
+            footer strong {
+                color: var(--lilac-light);
+            }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width:640px) {
+            .topic-header {
+                flex-direction: column;
+                padding: 24px 22px 20px;
+            }
+
+            .topic-body {
+                padding: 24px 22px;
+            }
+
+            .sticky-nav .links {
+                display: none;
+            }
+
+            .formula-box .f-main {
+                font-size: 1.5rem;
+            }
+        }
+
+        /* ── FADE ANIM ── */
+        .topic {
+            animation: fadeUp 0.6s ease both;
+            animation-play-state: paused;
+        }
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(24px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ── HIGHLIGHT ── */
+        mark {
+            background: var(--lilac-light);
+            color: var(--violet-dark);
+            border-radius: 4px;
+            padding: 0 3px;
+            font-weight: 600;
+        }
+
+        strong {
+            color: var(--violet-dark);
+        }
+
+        /* ── INLINE FORMULA ── */
+        .f {
+            display: inline-block;
+            background: var(--lilac-light);
+            color: var(--violet-dark);
+            border-radius: 6px;
+            padding: 1px 8px;
+            font-family: monospace;
+            font-size: 0.95em;
+            font-weight: 700;
+        }
+    </style>
+</head>
+<body>
+
+    <section class="hero">
+        <div class="mol mol1"></div>
+        <div class="mol mol2"></div>
+        <div class="mol mol3"></div>
+        <div class="mol mol4"></div>
+        <div class="mol mol5"></div>
+
+        <span class="hero-badge">⚗️ Química · 3º Ano EM</span>
+        <h1>Soluções &<br><em>Diluição</em></h1>
+        <p class="hero-sub">Tudo que você precisa saber — conceitos, fórmulas, classificações, cálculos e exemplos resolvidos.</p>
+        <nav class="hero-pills">
+            <a href="#conceitos">Conceitos</a>
+            <a href="#classificacao">Classificação</a>
+            <a href="#concentracao">Concentração</a>
+            <a href="#molaridade">Molaridade</a>
+            <a href="#diluicao">Diluição</a>
+            <a href="#mistura">Mistura de Soluções</a>
+            <a href="#solubilidade">Solubilidade</a>
+            <a href="#comparacao">Resumo</a>
+            <a href="#quiz-section">Quiz 🎯</a>
+        </nav>
+    </section>
+
+    <nav class="sticky-nav">
+        <span class="brand">💜 Soluções & Diluição</span>
+        <div class="links">
+            <a href="#conceitos">Conceitos</a>
+            <a href="#classificacao">Classificação</a>
+            <a href="#concentracao">Concentração</a>
+            <a href="#molaridade">Molaridade</a>
+            <a href="#diluicao">Diluição</a>
+            <a href="#mistura">Mistura</a>
+            <a href="#solubilidade">Solubilidade</a>
+            <a href="#quiz-section">Quiz</a>
+        </div>
+    </nav>
+
+    <section class="wrap" id="conceitos">
+        <span class="section-label">🔬 Base</span>
+        <h2 class="section-title">Conceitos Fundamentais</h2>
+        <div class="accent-line"></div>
+        <p class="section-sub">Antes de calcular, é preciso entender bem o que é uma solução e seus componentes.</p>
+
+        <div class="concept-grid">
+            <div class="concept-card">
+                <div class="icon">🧪</div>
+                <h3>Solução</h3>
+                <p>Mistura homogênea de dois ou mais componentes em proporções variáveis.</p>
+            </div>
+            <div class="concept-card">
+                <div class="icon">🫧</div>
+                <h3>Soluto</h3>
+                <p>Substância que <strong>se dissolve</strong>. Geralmente está em menor quantidade (ex: sal, açúcar).</p>
+            </div>
+            <div class="concept-card">
+                <div class="icon">💧</div>
+                <h3>Solvente</h3>
+                <p>Substância que <strong>dissolve</strong> o soluto. Geralmente em maior quantidade (ex: água).</p>
+            </div>
+            <div class="concept-card">
+                <div class="icon">⚗️</div>
+                <h3>Mistura Homogênea</h3>
+                <p>Fase única — não é possível distinguir soluto do solvente a olho nu.</p>
+            </div>
+            <div class="concept-card">
+                <div class="icon">🌊</div>
+                <h3>Solvente Universal</h3>
+                <p>A água é chamada de solvente universal por dissolver grande variedade de substâncias.</p>
+            </div>
+            <div class="concept-card">
+                <div class="icon">📏</div>
+                <h3>Solubilidade</h3>
+                <p>Quantidade máxima de soluto que se dissolve em certa quantidade de solvente a temperatura dada.</p>
+            </div>
+        </div>
+
+        <div class="dblock">
+            <h4>💡 Regra "Semelhante dissolve semelhante"</h4>
+            <ul>
+                <li><strong>Solventes polares</strong> (como água) dissolvem <strong>solutos polares e iônicos</strong> (ex: NaCl, HCl, açúcar).</li>
+                <li><strong>Solventes apolares</strong> (como éter, gasolina) dissolvem <strong>solutos apolares</strong> (ex: gorduras, cera).</li>
+                <li>Isso se chama princípio da <em>miscibilidade por polaridade</em>.</li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="wrap" id="classificacao" style="padding-top:0">
+        <div class="topic">
+            <div class="topic-header">
+                <div class="topic-icon">📂</div>
+                <div>
+                    <h2>Classificação das Soluções</h2>
+                    <div class="subtitle">Por estado físico, número de fases, natureza do soluto e quantidade de soluto</div>
+                </div>
+            </div>
+            <div class="topic-body">
+
+                <div class="tabs">
+                    <button class="tab-btn active" onclick="showTab(this,'cls-estado')">Estado Físico</button>
+                    <button class="tab-btn" onclick="showTab(this,'cls-fases')">Nº de Fases</button>
+                    <button class="tab-btn" onclick="showTab(this,'cls-natureza')">Natureza do Soluto</button>
+                    <button class="tab-btn" onclick="showTab(this,'cls-quantidade')">Quantidade de Soluto</button>
+                </div>
+
+                <div id="cls-estado" class="tab-panel active">
+                    <div class="dblock">
+                        <h4>Classificação pelo Estado Físico</h4>
+                        <ul>
+                            <li><strong>Sólida:</strong> liga de metais (bronze = Cu + Sn), aço.</li>
+                            <li><strong>Líquida:</strong> água salgada, álcool em água, vinagre — a mais comum.</li>
+                            <li><strong>Gasosa:</strong> ar atmosférico (N₂ + O₂ + outros gases).</li>
+                        </ul>
+                        <p style="margin-top:10px; font-size:0.88rem; color:var(--text-light)">O estado da solução é geralmente o estado do solvente.</p>
+                    </div>
+                </div>
+
+                <div id="cls-fases" class="tab-panel">
+                    <div class="dblock">
+                        <h4>Classificação pelo Número de Fases</h4>
+                        <ul>
+                            <li><strong>Monofásica (1 fase):</strong> solução verdadeira — partículas do soluto &lt; 1 nm (íons ou moléculas). Ex: água com sal.</li>
+                            <li><strong>Bifásica (2 fases):</strong> suspensão — partículas &gt; 1.000 nm, visíveis e que sedimentam. Ex: areia em água.</li>
+                            <li><strong>Coloidal (intermediária):</strong> partículas entre 1 e 1.000 nm — não sedimentam, apresentam Efeito Tyndall. Ex: leite, maionese, gelatina.</li>
+                        </ul>
+                    </div>
+                    <div class="alert-box">
+                        <div class="alert-icon">💡</div>
+                        <div><strong>Efeito Tyndall:</strong> dispersão da luz visível em coloides (feixe de luz visível quando atravessa o coloide). Não ocorre em soluções verdadeiras.</div>
+                    </div>
+                </div>
+
+                <div id="cls-natureza" class="tab-panel">
+                    <div class="dblock">
+                        <h4>Classificação pela Natureza do Soluto</h4>
+                        <ul>
+                            <li><strong>Eletrolíticas:</strong> o soluto se ioniza ou dissocia em água, gerando íons — conduzem eletricidade. Ex: NaCl, HCl, NaOH.</li>
+                            <li><strong>Não-eletrolíticas:</strong> o soluto não produz íons — não conduzem eletricidade. Ex: glicose (C₆H₁₂O₆), sacarose, etanol.</li>
+                        </ul>
+                    </div>
+                    <div class="dblock">
+                        <h4>Ionização × Dissociação</h4>
+                        <ul>
+                            <li><strong>Ionização:</strong> ocorre com substâncias moleculares que reagem com a água gerando íons. Ex: HCl + H₂O → H⁺ + Cl⁻</li>
+                            <li><strong>Dissociação:</strong> ocorre com substâncias iônicas que já possuem íons — a água apenas os separa. Ex: NaCl → Na⁺ + Cl⁻</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div id="cls-quantidade" class="tab-panel">
+                    <div class="dblock">
+                        <h4>Classificação pela Quantidade de Soluto</h4>
+                        <ul>
+                            <li><strong>Insaturada (não saturada):</strong> contém menos soluto do que o máximo possível na temperatura dada — pode dissolver mais.</li>
+                            <li><strong>Saturada:</strong> contém a quantidade máxima de soluto dissolvido (equilíbrio de dissolução). Pode ter corpo de fundo.</li>
+                            <li><strong>Supersaturada:</strong> contém mais soluto do que o limite de solubilidade — estado instável, qualquer perturbação faz cristalizar.</li>
+                        </ul>
+                    </div>
+                    <div class="alert-box">
+                        <div class="alert-icon">⚠️</div>
+                        <div>A solução saturada <strong>com corpo de fundo</strong> (excesso de soluto sólido) é chamada de <strong>solução saturada heterogênea</strong>. Sem corpo de fundo, é <strong>homogênea saturada</strong>.</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="wrap" id="concentracao" style="padding-top:0">
+        <div class="topic">
+            <div class="topic-header">
+                <div class="topic-icon">⚖️</div>
+                <div>
+                    <h2>Concentração Comum (C)</h2>
+                    <div class="subtitle">Concentração em massa — g/L</div>
+                </div>
+            </div>
+            <div class="topic-body">
+
+                <div class="big-formula">
+                    <div class="bf-title">Fórmula da Concentração Comum</div>
+                    <div class="bf-formula">C = m₁ / V</div>
+                    <div class="bf-vars">
+                        <span class="bfv">C = concentração (g/L)</span>
+                        <span class="bfv">m₁ = massa do soluto (g)</span>
+                        <span class="bfv">V = volume da solução (L)</span>
+                    </div>
+                </div>
+
+                <div class="tabs">
+                    <button class="tab-btn active" onclick="showTab(this,'conc-def')">Conceito</button>
+                    <button class="tab-btn" onclick="showTab(this,'conc-ex1')">Exemplo 1</button>
+                    <button class="tab-btn" onclick="showTab(this,'conc-ex2')">Exemplo 2</button>
+                    <button class="tab-btn" onclick="showTab(this,'conc-outras')">Outras Formas</button>
+                </div>
+
+                <div id="conc-def" class="tab-panel active">
+                    <div class="dblock">
+                        <h4>O que é a Concentração Comum?</h4>
+                        <p>Indica a <strong>massa de soluto (em gramas)</strong> presente em <strong>1 litro de solução</strong>. É a forma mais simples de expressar concentração.</p>
+                        <ul style="margin-top:12px">
+                            <li>Unidade mais comum: <strong>g/L</strong> (gramas por litro)</li>
+                            <li>Pode ser expressa também em g/mL (÷ 1000) ou mg/dL</li>
+                            <li>Não leva em conta a massa molar — apenas a massa em gramas</li>
+                            <li>Atenção: volume da <strong>solução</strong>, não do solvente!</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div id="conc-ex1" class="tab-panel">
+                    <div class="example-box">
+                        <div class="ex-label">✏️ Exemplo Resolvido 1</div>
+                        <div class="ex-text">
+                            <strong>Problema:</strong> Dissolveram-se 40 g de NaOH em água, completando o volume para 500 mL. Qual é a concentração da solução?<br><br>
+                            <strong>Resolução:</strong><br>
+                            Converter volume: 500 mL = 0,5 L
+                        </div>
+                        <div class="ex-formula">C = m₁ / V = 40 g / 0,5 L = <strong>80 g/L</strong></div>
+                        <div class="ex-text">A concentração da solução de NaOH é <strong>80 g/L</strong>.</div>
+                    </div>
+                </div>
+
+                <div id="conc-ex2" class="tab-panel">
+                    <div class="example-box">
+                        <div class="ex-label">✏️ Exemplo Resolvido 2</div>
+                        <div class="ex-text">
+                            <strong>Problema:</strong> Uma solução de glicose tem concentração de 54 g/L. Qual a massa de glicose em 250 mL dessa solução?<br><br>
+                            <strong>Resolução:</strong><br>
+                            C = m₁ / V → m₁ = C × V<br>
+                            V = 250 mL = 0,25 L
+                        </div>
+                        <div class="ex-formula">m₁ = 54 g/L × 0,25 L = <strong>13,5 g</strong></div>
+                        <div class="ex-text">Há <strong>13,5 g</strong> de glicose em 250 mL da solução.</div>
+                    </div>
+                </div>
+
+                <div id="conc-outras" class="tab-panel">
+                    <div class="dblock">
+                        <h4>Concentração em % (m/m) — Porcentagem em Massa</h4>
+                        <p>Indica quantos gramas de soluto há em 100 g de solução.</p>
+                        <div style="background:white;border-radius:10px;padding:12px 16px;margin:10px 0;font-family:monospace;font-size:1rem;color:var(--violet-dark);text-align:center;border:1px solid var(--lilac-light);">
+                            % (m/m) = (m₁ / m<sub>solução</sub>) × 100
+                        </div>
+                        <p>Ex: soro fisiológico = 0,9% (m/m) → 0,9 g de NaCl por 100 g de solução.</p>
+                    </div>
+                    <div class="dblock">
+                        <h4>Concentração em % (v/v) — Porcentagem em Volume</h4>
+                        <p>Indica quantos mL de soluto há em 100 mL de solução. Usada para soluções de líquidos em líquidos.</p>
+                        <div style="background:white;border-radius:10px;padding:12px 16px;margin:10px 0;font-family:monospace;font-size:1rem;color:var(--violet-dark);text-align:center;border:1px solid var(--lilac-light);">
+                            % (v/v) = (V<sub>soluto</sub> / V<sub>solução</sub>) × 100
+                        </div>
+                        <p>Ex: Álcool 70° = 70% (v/v) → 70 mL de álcool por 100 mL de solução.</p>
+                    </div>
+                    <div class="dblock">
+                        <h4>Partes por Milhão (ppm)</h4>
+                        <p>Usada para soluções muito diluídas (água potável, poluentes).</p>
+                        <div style="background:white;border-radius:10px;padding:12px 16px;margin:10px 0;font-family:monospace;font-size:1rem;color:var(--violet-dark);text-align:center;border:1px solid var(--lilac-light);">
+                            1 ppm = 1 mg/L = 1 g/m³
+                        </div>
+                        <p>Ex: cloro na água tratada ~ 0,5 ppm.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="wrap" id="molaridade" style="padding-top:0">
+        <div class="topic">
+            <div class="topic-header">
+                <div class="topic-icon">🔢</div>
+                <div>
+                    <h2>Molaridade (M) — Concentração Molar</h2>
+                    <div class="subtitle">Mol de soluto por litro de solução</div>
+                </div>
+            </div>
+            <div class="topic-body">
+
+                <div class="big-formula">
+                    <div class="bf-title">Fórmula da Molaridade</div>
+                    <div class="bf-formula">M = n / V</div>
+                    <div class="bf-vars">
+                        <span class="bfv">M = molaridade (mol/L)</span>
+                        <span class="bfv">n = número de mols do soluto (mol)</span>
+                        <span class="bfv">V = volume da solução (L)</span>
+                    </div>
+                </div>
+
+                <div class="dblock">
+                    <h4>Como calcular o número de mols (n)</h4>
+                    <div style="background:white;border-radius:10px;padding:12px 16px;margin:10px 0;font-family:monospace;font-size:1.05rem;color:var(--violet-dark);text-align:center;border:1px solid var(--lilac-light);">
+                        n = m / M<sub>molar</sub>
+                    </div>
+                    <ul>
+                        <li><strong>n</strong> = número de mols</li>
+                        <li><strong>m</strong> = massa do soluto em gramas</li>
+                        <li><strong>M<sub>molar</sub></strong> = massa molar da substância (g/mol) — soma das massas atômicas</li>
+                    </ul>
+                </div>
+
+                <div class="dblock">
+                    <h4>Relação entre Concentração Comum (C) e Molaridade (M)</h4>
+                    <div style="background:white;border-radius:10px;padding:12px 16px;margin:10px 0;font-family:monospace;font-size:1.05rem;color:var(--violet-dark);text-align:center;border:1px solid var(--lilac-light);">
+                        M = C / M<sub>molar</sub>
+                    </div>
+                    <p>Onde <strong>C</strong> está em g/L e <strong>M<sub>molar</sub></strong> em g/mol.</p>
+                </div>
+
+                <div class="tabs">
+                    <button class="tab-btn active" onclick="showTab(this,'mol-ex1')">Exemplo 1</button>
+                    <button class="tab-btn" onclick="showTab(this,'mol-ex2')">Exemplo 2</button>
+                    <button class="tab-btn" onclick="showTab(this,'mol-ex3')">Exemplo 3 (C→M)</button>
+                </div>
+
+                <div id="mol-ex1" class="tab-panel active">
+                    <div class="example-box">
+                        <div class="ex-label">✏️ Exemplo Resolvido 1</div>
+                        <div class="ex-text">
+                            <strong>Problema:</strong> Dissolveram-se 117 g de NaCl (M = 58,5 g/mol) em água, totalizando 2 L de solução. Calcule a molaridade.<br><br>
+                            <strong>Passo 1 — calcular n:</strong>
+                        </div>
+                        <div class="ex-formula">n = m / M<sub>molar</sub> = 117 / 58,5 = <strong>2 mol</strong></div>
+                        <div class="ex-text"><strong>Passo 2 — calcular M:</strong></div>
+                        <div class="ex-formula">M = n / V = 2 mol / 2 L = <strong>1 mol/L</strong></div>
+                    </div>
+                </div>
+
+                <div id="mol-ex2" class="tab-panel">
+                    <div class="example-box">
+                        <div class="ex-label">✏️ Exemplo Resolvido 2</div>
+                        <div class="ex-text">
+                            <strong>Problema:</strong> Qual é a massa de NaOH (M = 40 g/mol) necessária para preparar 500 mL de solução 2 mol/L?<br><br>
+                            <strong>Dados:</strong> M = 2 mol/L, V = 0,5 L, M<sub>molar</sub> = 40 g/mol<br>
+                            <strong>Passo 1:</strong>
+                        </div>
+                        <div class="ex-formula">n = M × V = 2 × 0,5 = <strong>1 mol</strong></div>
+                        <div class="ex-text"><strong>Passo 2:</strong></div>
+                        <div class="ex-formula">m = n × M<sub>molar</sub> = 1 × 40 = <strong>40 g</strong></div>
+                    </div>
+                </div>
+
+                <div id="mol-ex3" class="tab-panel">
+                    <div class="example-box">
+                        <div class="ex-label">✏️ Exemplo Resolvido 3 — Convertendo C em M</div>
+                        <div class="ex-text">
+                            <strong>Problema:</strong> Uma solução de HCl tem concentração de 73 g/L. Calcule sua molaridade. (M<sub>molar</sub> HCl = 36,5 g/mol)<br><br>
+                        </div>
+                        <div class="ex-formula">M = C / M<sub>molar</sub> = 73 / 36,5 = <strong>2 mol/L</strong></div>
+                        <div class="ex-text">A molaridade da solução de HCl é <strong>2 mol/L</strong>.</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="wrap" id="diluicao" style="padding-top:0">
+        <div class="topic">
+            <div class="topic-header">
+                <div class="topic-icon">💦</div>
+                <div>
+                    <h2>Diluição de Soluções</h2>
+                    <div class="subtitle">Adicionar solvente para diminuir a concentração</div>
+                </div>
+            </div>
+            <div class="topic-body">
+
+                <div class="dblock">
+                    <h4>O que é Diluição?</h4>
+                    <p>Diluição é o processo de <strong>adicionar solvente</strong> a uma solução já existente, aumentando o volume e <strong>diminuindo a concentração</strong>. O <strong>número de mols do soluto</strong> (ou a massa do soluto) <strong>permanece constante</strong> — apenas o volume aumenta.</p>
+                </div>
+
+                <div class="conc-visual">
+                    <div class="beaker-card">
+                        <svg class="beaker-svg" viewBox="0 0 60 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M10 10 H50 L55 70 H5 Z" stroke="#7c3aed" stroke-width="2.5" fill="none" stroke-linejoin="round" />
+                            <rect x="8" y="10" width="44" height="4" fill="#ede9fe" rx="1" />
+                            <rect x="6.5" y="38" width="47" height="30" fill="#c084fc" opacity="0.5" rx="2" />
+                            <circle cx="20" cy="52" r="3" fill="white" opacity="0.7" />
+                            <circle cx="32" cy="48" r="2" fill="white" opacity="0.7" />
+                            <circle cx="42" cy="55" r="2.5" fill="white" opacity="0.7" />
+                            <circle cx="26" cy="58" r="2" fill="white" opacity="0.7" />
+                        </svg>
+                        <div class="bc-label">Solução Concentrada</div>
+                        <div class="bc-sub">Volume pequeno<br>Concentração alta</div>
+                    </div>
+                    <div class="beaker-card" style="display:flex;align-items:center;justify-content:center;background:none;border:none;box-shadow:none;font-size:2rem;color:var(--violet)">➕💧</div>
+                    <div class="beaker-card">
+                        <svg class="beaker-svg" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M8 10 H72 L78 70 H2 Z" stroke="#7c3aed" stroke-width="2.5" fill="none" stroke-linejoin="round" />
+                            <rect x="6" y="10" width="68" height="4" fill="#ede9fe" rx="1" />
+                            <rect x="3" y="38" width="74" height="30" fill="#c084fc" opacity="0.25" rx="2" />
+                            <circle cx="22" cy="54" r="2" fill="white" opacity="0.6" />
+                            <circle cx="40" cy="50" r="1.5" fill="white" opacity="0.6" />
+                            <circle cx="60" cy="56" r="2" fill="white" opacity="0.6" />
+                        </svg>
+                        <div class="bc-label">Solução Diluída</div>
+                        <div class="bc-sub">Volume maior<br>Concentração menor</div>
+                    </div>
+                </div>
+
+                <div class="big-formula">
+                    <div class="bf-title">Lei da Conservação do Soluto na Diluição</div>
+                    <div class="bf-formula">C₁ · V₁ = C₂ · V₂</div>
+                    <div class="bf-vars">
+                        <span class="bfv">C₁ = concentração inicial (g/L ou mol/L)</span>
+                        <span class="bfv">V₁ = volume inicial (L)</span>
+                        <span class="bfv">C₂ = concentração final (g/L ou mol/L)</span>
+                        <span class="bfv">V₂ = volume final (L)</span>
+                    </div>
+                </div>
+
+                <div class="alert-box">
+                    <div class="alert-icon">⚠️</div>
+                    <div>
+                        <strong>V₂ = V₁ + V<sub>solvente adicionado</sub></strong> — nunca esqueça: V₂ é o volume <em>total final</em> da solução, não o volume de solvente que você adicionou!<br>
+                        Funciona também com molaridade: <strong>M₁ · V₁ = M₂ · V₂</strong>
+                    </div>
+                </div>
+
+                <div class="tabs">
+                    <button class="tab-btn active" onclick="showTab(this,'dil-ex1')">Exemplo 1</button>
+                    <button class="tab-btn" onclick="showTab(this,'dil-ex2')">Exemplo 2</button>
+                    <button class="tab-btn" onclick="showTab(this,'dil-ex3')">Exemplo 3</button>
+                    <button class="tab-btn" onclick="showTab(this,'dil-passos')">Passo a Passo</button>
+                </div>
+
+                <div id="dil-ex1" class="tab-panel active">
+                    <div class="example-box">
+                        <div class="ex-label">✏️ Exemplo 1</div>
+                        <div class="ex-text">
+                            <strong>Problema:</strong> Temos 200 mL de uma solução de NaCl com concentração de 150 g/L. Adicionamos água até completar 600 mL. Qual a nova concentração?<br><br>
+                            <strong>Dados:</strong> C₁ = 150 g/L, V₁ = 200 mL = 0,2 L, V₂ = 600 mL = 0,6 L
+                        </div>
+                        <div class="ex-formula">C₁ · V₁ = C₂ · V₂<br>150 × 0,2 = C₂ × 0,6<br>30 = C₂ × 0,6<br>C₂ = 30 / 0,6 = <strong>50 g/L</strong></div>
+                    </div>
+                </div>
+
+                <div id="dil-ex2" class="tab-panel">
+                    <div class="example-box">
+                        <div class="ex-label">✏️ Exemplo 2</div>
+                        <div class="ex-text">
+                            <strong>Problema:</strong> Quantos mL de água devem ser adicionados a 500 mL de HCl 6 mol/L para obter uma solução 2 mol/L?<br><br>
+                            <strong>Dados:</strong> M₁ = 6, V₁ = 0,5 L, M₂ = 2, V₂ = ?
+                        </div>
+                        <div class="ex-formula">M₁ · V₁ = M₂ · V₂<br>6 × 0,5 = 2 × V₂<br>V₂ = 3 / 2 = <strong>1,5 L</strong></div>
+                        <div class="ex-text">V<sub>água</sub> = V₂ − V₁ = 1,5 − 0,5 = <strong>1,0 L = 1.000 mL</strong> de água a adicionar.</div>
+                    </div>
+                </div>
+
+                <div id="dil-ex3" class="tab-panel">
+                    <div class="example-box">
+                        <div class="ex-label">✏️ Exemplo 3 — Diluição de ácido comercial</div>
+                        <div class="ex-text">
+                            <strong>Problema:</strong> Um ácido sulfúrico comercial tem concentração de 1.800 g/L. Qual volume dessa solução deve ser usado para preparar 3 L de H₂SO₄ com concentração de 300 g/L?<br><br>
+                            <strong>Dados:</strong> C₁ = 1.800 g/L, C₂ = 300 g/L, V₂ = 3 L, V₁ = ?
+                        </div>
+                        <div class="ex-formula">C₁ · V₁ = C₂ · V₂<br>1.800 × V₁ = 300 × 3<br>V₁ = 900 / 1.800 = <strong>0,5 L = 500 mL</strong></div>
+                        <div class="ex-text">Devem ser usados <strong>500 mL</strong> do ácido comercial, completando com água até 3 L.</div>
+                    </div>
+                </div>
+
+                <div id="dil-passos" class="tab-panel">
+                    <div class="dblock">
+                        <h4>Como Resolver Qualquer Problema de Diluição</h4>
+                        <div class="steps">
+                            <div class="step"><div class="snum">1</div><div class="stext">Identifique os dados: concentração inicial (C₁ ou M₁) e volume inicial (V₁).</div></div>
+                            <div class="step"><div class="snum">2</div><div class="stext">Identifique o que a questão pede: C₂, V₂ ou o volume de solvente adicionado.</div></div>
+                            <div class="step"><div class="snum">3</div><div class="stext"><strong>Atenção:</strong> se der o volume de solvente adicionado, some com V₁ para obter V₂.</div></div>
+                            <div class="step"><div class="snum">4</div><div class="stext">Converta todos os volumes para a mesma unidade (mL ou L).</div></div>
+                            <div class="step"><div class="snum">5</div><div class="stext">Aplique C₁V₁ = C₂V₂ e isole a incógnita.</div></div>
+                            <div class="step"><div class="snum">6</div><div class="stext">Verifique se a concentração final é menor que a inicial — obrigatoriamente deve ser!</div></div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="wrap" id="mistura" style="padding-top:0">
+        <div class="topic">
+            <div class="topic-header">
+                <div class="topic-icon">🔀</div>
+                <div>
+                    <h2>Mistura de Soluções</h2>
+                    <div class="subtitle">Mesmo soluto · Soluções diferentes misturadas</div>
+                </div>
+            </div>
+            <div class="topic-body">
+
+                <div class="dblock">
+                    <h4>Princípio da Conservação do Soluto</h4>
+                    <p>Quando misturamos duas soluções do <strong>mesmo soluto</strong>, a massa (ou quantidade de mols) total de soluto é a soma das massas de cada solução. O volume final é a soma dos volumes.</p>
+                </div>
+
+                <div class="big-formula">
+                    <div class="bf-title">Fórmula da Mistura de Soluções (mesmo soluto)</div>
+                    <div class="bf-formula">C<sub>f</sub> = (C₁·V₁ + C₂·V₂) / (V₁ + V₂)</div>
+                    <div class="bf-vars">
+                        <span class="bfv">C<sub>f</sub> = concentração final</span>
+                        <span class="bfv">C₁, C₂ = concentrações das soluções</span>
+                        <span class="bfv">V₁, V₂ = volumes das soluções</span>
+                    </div>
+                </div>
+
+                <div class="alert-box">
+                    <div class="alert-icon">💡</div>
+                    <div>
+                        <strong>Para molaridade</strong>, a mesma fórmula se aplica:<br>
+                        <strong>M<sub>f</sub> = (M₁·V₁ + M₂·V₂) / (V₁ + V₂)</strong>
+                    </div>
+                </div>
+
+                <div class="tabs">
+                    <button class="tab-btn active" onclick="showTab(this,'mix-ex1')">Exemplo 1</button>
+                    <button class="tab-btn" onclick="showTab(this,'mix-ex2')">Exemplo 2</button>
+                    <button class="tab-btn" onclick="showTab(this,'mix-obs')">Observações Importantes</button>
+                </div>
+
+                <div id="mix-ex1" class="tab-panel active">
+                    <div class="example-box">
+                        <div class="ex-label">✏️ Exemplo 1</div>
+                        <div class="ex-text">
+                            <strong>Problema:</strong> Misturam-se 300 mL de solução de NaCl a 60 g/L com 200 mL de solução de NaCl a 90 g/L. Qual a concentração da mistura?
+                        </div>
+                        <div class="ex-formula">
+                            m<sub>total</sub> = (60 × 0,3) + (90 × 0,2) = 18 + 18 = 36 g<br>
+                            V<sub>total</sub> = 0,3 + 0,2 = 0,5 L<br>
+                            C<sub>f</sub> = 36 / 0,5 = <strong>72 g/L</strong>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="mix-ex2" class="tab-panel">
+                    <div class="example-box">
+                        <div class="ex-label">✏️ Exemplo 2 — Molaridade</div>
+                        <div class="ex-text">
+                            <strong>Problema:</strong> Misturam-se 400 mL de HCl 3 mol/L com 600 mL de HCl 0,5 mol/L. Qual a molaridade final?
+                        </div>
+                        <div class="ex-formula">
+                            n<sub>total</sub> = (3 × 0,4) + (0,5 × 0,6) = 1,2 + 0,3 = 1,5 mol<br>
+                            V<sub>total</sub> = 0,4 + 0,6 = 1,0 L<br>
+                            M<sub>f</sub> = 1,5 / 1,0 = <strong>1,5 mol/L</strong>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="mix-obs" class="tab-panel">
+                    <div class="dblock">
+                        <h4>Observações para a Prova</h4>
+                        <ul>
+                            <li>A concentração final sempre ficará <strong>entre as duas concentrações</strong> iniciais (valor intermediário).</li>
+                            <li>Se misturar solução com o <strong>solvente puro</strong> (C₂ = 0), a fórmula de mistura se reduz à fórmula de diluição.</li>
+                            <li>Só use essa fórmula quando as soluções tiverem o <strong>mesmo soluto</strong>. Se os solutos forem diferentes, cada um mantém sua própria quantidade de mols no volume total.</li>
+                            <li>Volume total = V₁ + V₂ (assumindo que os volumes são aditivos — válido em questões de vestibular).</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="wrap" id="solubilidade" style="padding-top:0">
+        <div class="topic">
+            <div class="topic-header">
+                <div class="topic-icon">🌡️</div>
+                <div>
+                    <h2>Solubilidade</h2>
+                    <div class="subtitle">Coeficiente de solubilidade e fatores que influenciam</div>
+                </div>
+            </div>
+            <div class="topic-body">
+
+                <div class="dblock">
+                    <h4>Coeficiente de Solubilidade (CS)</h4>
+                    <p>O coeficiente de solubilidade indica a <strong>quantidade máxima de soluto</strong> (em gramas) que se dissolve em <strong>100 g de solvente</strong> a uma temperatura determinada, formando solução saturada.</p>
+                    <div style="background:white;border-radius:10px;padding:12px 16px;margin:12px 0;font-family:monospace;font-size:1rem;color:var(--violet-dark);text-align:center;border:1px solid var(--lilac-light);">
+                        CS = (massa de soluto / 100 g de solvente) — em solução saturada
+                    </div>
+                </div>
+
+                <div class="tabs">
+                    <button class="tab-btn active" onclick="showTab(this,'sol-fatores')">Fatores que Influenciam</button>
+                    <button class="tab-btn" onclick="showTab(this,'sol-exemplos')">Exemplos de Solubilidade</button>
+                    <button class="tab-btn" onclick="showTab(this,'sol-calculo')">Cálculo com CS</button>
+                </div>
+
+                <div id="sol-fatores" class="tab-panel active">
+                    <div class="dblock">
+                        <h4>🌡️ Temperatura</h4>
+                        <ul>
+                            <li><strong>Sólidos em líquidos:</strong> a maioria tem solubilidade aumentada com o aumento da temperatura (ex: KNO₃, NaCl aumenta levemente).</li>
+                            <li><strong>Gases em líquidos:</strong> solubilidade <strong>diminui</strong> com o aumento da temperatura (por isso refrigerante quente perde gás rapidamente).</li>
+                        </ul>
+                    </div>
+                    <div class="dblock">
+                        <h4>🔴 Pressão</h4>
+                        <ul>
+                            <li><strong>Sólidos e líquidos:</strong> pressão praticamente não influencia a solubilidade.</li>
+                            <li><strong>Gases em líquidos:</strong> solubilidade aumenta com o aumento da pressão (<strong>Lei de Henry</strong>). Ex: gás no refrigerante sob pressão dentro da garrafa fechada.</li>
+                        </ul>
+                    </div>
+                    <div class="dblock">
+                        <h4>🧲 Natureza do Soluto e do Solvente</h4>
+                        <ul>
+                            <li>Substâncias polares se dissolvem em solventes polares ("semelhante dissolve semelhante").</li>
+                            <li>Substâncias iônicas se dissolvem bem em água por processo de solvatação dos íons.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div id="sol-exemplos" class="tab-panel">
+                    <div class="solub-grid">
+                        <div class="solub-card solub"><div class="sc-label">Solúvel em H₂O</div><div class="sc-val">NaCl (sal de cozinha)</div></div>
+                        <div class="solub-card solub"><div class="sc-label">Solúvel em H₂O</div><div class="sc-val">C₁₂H₂₂O₁₁ (sacarose)</div></div>
+                        <div class="solub-card solub"><div class="sc-label">Solúvel em H₂O</div><div class="sc-val">HCl (ácido clorídrico)</div></div>
+                        <div class="solub-card solub"><div class="sc-label">Solúvel em H₂O</div><div class="sc-val">CuSO₄ (sulfato de cobre)</div></div>
+                        <div class="solub-card little"><div class="sc-label">Pouco solúvel</div><div class="sc-val">CaSO₄ (sulfato de cálcio)</div></div>
+                        <div class="solub-card little"><div class="sc-label">Pouco solúvel</div><div class="sc-val">CO₂ (dióxido de carbono)</div></div>
+                        <div class="solub-card insolub"><div class="sc-label">Insolúvel em H₂O</div><div class="sc-val">BaSO₄ (sulfato de bário)</div></div>
+                        <div class="solub-card insolub"><div class="sc-label">Insolúvel em H₂O</div><div class="sc-val">AgCl (cloreto de prata)</div></div>
+                        <div class="solub-card insolub"><div class="sc-label">Insolúvel em H₂O</div><div class="sc-val">Óleo (apolar)</div></div>
+                    </div>
+                </div>
+
+                <div id="sol-calculo" class="tab-panel">
+                    <div class="example-box">
+                        <div class="ex-label">✏️ Exemplo com Coeficiente de Solubilidade</div>
+                        <div class="ex-text">
+                            <strong>Problema:</strong> O coeficiente de solubilidade do KNO₃ a 60°C é 110 g/100 g de água. Qual a massa mínima de KNO₃ que precipita ao esfriar 400 g de água de 60°C até 20°C? (CS a 20°C = 31,6 g/100 g H₂O)<br><br>
+                            <strong>A 60°C:</strong> máximo dissolvido em 400 g de H₂O:
+                        </div>
+                        <div class="ex-formula">m₆₀ = (110 / 100) × 400 = <strong>440 g</strong></div>
+                        <div class="ex-text"><strong>A 20°C:</strong> máximo dissolvido em 400 g de H₂O:</div>
+                        <div class="ex-formula">m₂₀ = (31,6 / 100) × 400 = <strong>126,4 g</strong></div>
+                        <div class="ex-text"><strong>Massa precipitada:</strong></div>
+                        <div class="ex-formula">m<sub>prec</sub> = 440 − 126,4 = <strong>313,6 g</strong></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="wrap" id="comparacao" style="padding-top:0">
+        <span class="section-label">📋 Resumo</span>
+        <h2 class="section-title">Tabela Comparativa — Fórmulas</h2>
+        <div class="accent-line"></div>
+        <p class="section-sub">Todas as fórmulas essenciais em um só lugar. Perfeito para revisão rápida!</p>
+
+        <div class="compare-wrap">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Grandeza</th>
+                        <th>Símbolo</th>
+                        <th>Fórmula</th>
+                        <th>Unidade</th>
+                        <th>Observação</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Concentração Comum</strong></td>
+                        <td>C</td>
+                        <td>C = m₁ / V</td>
+                        <td>g/L</td>
+                        <td>Massa do soluto por volume de solução</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Molaridade</strong></td>
+                        <td>M</td>
+                        <td>M = n / V</td>
+                        <td>mol/L</td>
+                        <td>Mols do soluto por volume de solução</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Nº de Mols</strong></td>
+                        <td>n</td>
+                        <td>n = m / M<sub>molar</sub></td>
+                        <td>mol</td>
+                        <td>Massa ÷ massa molar da substância</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Relação C e M</strong></td>
+                        <td>—</td>
+                        <td>M = C / M<sub>molar</sub></td>
+                        <td>—</td>
+                        <td>C em g/L, M<sub>molar</sub> em g/mol</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Diluição</strong></td>
+                        <td>—</td>
+                        <td>C₁·V₁ = C₂·V₂</td>
+                        <td>—</td>
+                        <td>Conservação do soluto; V₂ é volume total final</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Mistura (mesmo soluto)</strong></td>
+                        <td>C<sub>f</sub></td>
+                        <td>C<sub>f</sub> = (C₁V₁ + C₂V₂)/(V₁+V₂)</td>
+                        <td>g/L ou mol/L</td>
+                        <td>Resultado entre as duas concentrações</td>
+                    </tr>
+                    <tr>
+                        <td><strong>% massa/massa</strong></td>
+                        <td>% m/m</td>
+                        <td>(m<sub>soluto</sub>/m<sub>solução</sub>) × 100</td>
+                        <td>%</td>
+                        <td>Gramas de soluto por 100 g de solução</td>
+                    </tr>
+                    <tr>
+                        <td><strong>% volume/volume</strong></td>
+                        <td>% v/v</td>
+                        <td>(V<sub>soluto</sub>/V<sub>solução</sub>) × 100</td>
+                        <td>%</td>
+                        <td>Usada para líquidos em líquidos</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="dblock" style="margin-top:32px">
+            <h4>🎯 Macetes para a Prova</h4>
+            <ul>
+                <li><strong>Diluição × Mistura:</strong> diluição = adicionar solvente puro (concentração zero). Mistura = juntar duas soluções com soluto.</li>
+                <li><strong>C₁V₁ = C₂V₂</strong> vale tanto para g/L quanto para mol/L — mas não misture as unidades!</li>
+                <li><strong>Solubilidade de gás</strong> aumenta com pressão e diminui com temperatura (oposto dos sólidos).</li>
+                <li><strong>Ordem de magnitude das concentrações</strong> muito diluídas: mg/L = ppm (partes por milhão).</li>
+                <li><strong>Sempre converter mL → L</strong> antes de aplicar qualquer fórmula!</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="quiz-section">
+        <div class="quiz-inner">
+            <span class="section-label" style="background:rgba(192,132,252,0.2);color:var(--lilac-light);">🎯 Teste</span>
+            <h2 class="section-title">Quiz de Revisão</h2>
+            <div class="accent-line"></div>
+            <p class="section-sub">14 questões sobre Soluções e Diluição — do básico ao nível ENEM/vestibular!</p>
+
+            <div class="prog-wrap">
+                <div class="prog-fill" id="progBar"></div>
+            </div>
+
+            <div id="quizBox"></div>
+            <div class="quiz-result" id="quizRes">
+                <p style="color:rgba(255,255,255,0.55);font-size:0.9rem">Sua pontuação</p>
+                <div class="res-score" id="resScore"></div>
+                <p class="res-msg" id="resMsg"></p>
+                <button class="btn-restart" onclick="restart()">🔄 Tentar Novamente</button>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>Criado para estudos do <strong>3º Ano do Ensino Médio</strong> · Química · Soluções &amp; Diluição 💜</p>
+        <p style="margin-top:6px;font-size:0.77rem">Bons estudos! Você vai mandar bem na prova ✨</p>
+    </footer>
+
+    <script>
+        // ── TABS ──
+        function showTab(btn, id) {
+        const body = btn.closest('.topic-body') || btn.closest('.quiz-inner');
+        const container = btn.parentElement;
+        container.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        // find all sibling tab panels in same topic-body
+        const panels = btn.closest('.topic-body').querySelectorAll('.tab-panel');
+        panels.forEach(p => p.classList.remove('active'));
+        btn.classList.add('active');
+        document.getElementById(id).classList.add('active');
+        }
+
+        // ── QUIZ ──
+        const qs = [
+        {
+        q: "O que é uma solução química?",
+        opts: ["Mistura heterogênea de dois compostos", "Mistura homogênea de dois ou mais componentes em proporções variáveis", "Substância pura com propriedades definidas", "Reação química entre ácido e base"],
+        ans: 1,
+        exp: "Solução é uma mistura homogênea (fase única) de dois ou mais componentes — soluto (o que dissolve) e solvente (o que dissolve o soluto)."
+        },
+        {
+        q: "Numa solução de NaCl em água: o soluto é ______ e o solvente é ______.",
+        opts: ["água / NaCl", "NaCl / água", "íon Na⁺ / Cl⁻", "NaCl / etanol"],
+        ans: 1,
+        exp: "NaCl é o soluto (se dissolve, está em menor quantidade) e a água é o solvente (dissolve o soluto, está em maior quantidade)."
+        },
+        {
+        q: "Qual é a fórmula da concentração comum (C)?",
+        opts: ["C = n / V", "C = m₁ / V", "C = m₁ × V", "C = V / m₁"],
+        ans: 1,
+        exp: "C = m₁ / V, onde m₁ é a massa do soluto em gramas e V é o volume da solução em litros. Resultado em g/L."
+        },
+        {
+        q: "Dissolveram-se 90 g de glicose em água, totalizando 500 mL de solução. Qual é a concentração?",
+        opts: ["45 g/L", "180 g/L", "90 g/L", "0,18 g/L"],
+        ans: 1,
+        exp: "C = m₁ / V = 90 g / 0,5 L = 180 g/L. Atenção: converter mL para L antes de calcular!"
+        },
+        {
+        q: "A fórmula da molaridade (M) é:",
+        opts: ["M = m / V", "M = n / V", "M = C × M_molar", "M = V / n"],
+        ans: 1,
+        exp: "M = n / V, onde n é o número de mols do soluto e V é o volume da solução em litros. Unidade: mol/L."
+        },
+        {
+        q: "Calcule a molaridade de uma solução com 4 mol de HCl em 2 L de solução.",
+        opts: ["8 mol/L", "0,5 mol/L", "2 mol/L", "4 mol/L"],
+        ans: 2,
+        exp: "M = n / V = 4 mol / 2 L = 2 mol/L."
+        },
+        {
+        q: "Para converter concentração comum (C, em g/L) em molaridade (M), usa-se:",
+        opts: ["M = C × M_molar", "M = C / M_molar", "M = C + M_molar", "M = C − M_molar"],
+        ans: 1,
+        exp: "M = C / M_molar. Divide-se a concentração em g/L pela massa molar da substância em g/mol."
+        },
+        {
+        q: "O que é diluição de uma solução?",
+        opts: ["Adição de mais soluto à solução", "Adição de solvente à solução, aumentando o volume e reduzindo a concentração", "Evaporação do solvente para aumentar a concentração", "Reação química entre dois solutos"],
+        ans: 1,
+        exp: "Diluição é adicionar solvente a uma solução, aumentando o volume total e diminuindo a concentração. A quantidade de soluto permanece constante."
+        },
+        {
+        q: "A equação usada em diluição de soluções é:",
+        opts: ["C₁ + V₁ = C₂ + V₂", "C₁ / V₁ = C₂ / V₂", "C₁ · V₁ = C₂ · V₂", "C₁ − V₁ = C₂ − V₂"],
+        ans: 2,
+        exp: "C₁ · V₁ = C₂ · V₂, baseada na conservação da massa (ou mols) do soluto durante a diluição."
+        },
+        {
+        q: "Temos 300 mL de solução a 200 g/L. Adicionamos água até 1.500 mL. Qual é a nova concentração?",
+        opts: ["100 g/L", "40 g/L", "1.000 g/L", "60 g/L"],
+        ans: 1,
+        exp: "C₁V₁ = C₂V₂ → 200 × 0,3 = C₂ × 1,5 → 60 = C₂ × 1,5 → C₂ = 40 g/L."
+        },
+        {
+        q: "Quantos mL de água devo adicionar a 500 mL de HCl 4 mol/L para obter solução 1 mol/L?",
+        opts: ["1.500 mL", "500 mL", "2.000 mL", "1.000 mL"],
+        ans: 0,
+        exp: "M₁V₁ = M₂V₂ → 4 × 0,5 = 1 × V₂ → V₂ = 2 L. V_água = 2 − 0,5 = 1,5 L = 1.500 mL."
+        },
+        {
+        q: "Ao misturar 200 mL de NaCl 100 g/L com 300 mL de NaCl 50 g/L, a concentração final é:",
+        opts: ["75 g/L", "70 g/L", "80 g/L", "60 g/L"],
+        ans: 1,
+        exp: "m_total = (100 × 0,2) + (50 × 0,3) = 20 + 15 = 35 g. V_total = 0,5 L. C_f = 35/0,5 = 70 g/L."
+        },
+        {
+        q: "A solubilidade de gases em água aumenta com:",
+        opts: ["Aumento de temperatura e pressão", "Aumento de temperatura e diminuição de pressão", "Aumento de pressão e diminuição de temperatura", "Diminuição de pressão e temperatura"],
+        ans: 2,
+        exp: "Gases se dissolvem mais em água quando a pressão aumenta (Lei de Henry) e quando a temperatura diminui. Por isso refrigerante gelado tem mais gás do que quente."
+        },
+        {
+        q: "O soro fisiológico tem 0,9% (m/m) de NaCl. Isso significa:",
+        opts: ["0,9 L de NaCl por 100 L de solução", "0,9 g de NaCl por 100 g de solução", "0,9 mol de NaCl por litro", "0,9 g de NaCl por 100 mL de água"],
+        ans: 1,
+        exp: "Concentração m/m indica gramas de soluto por 100 g de solução. Soro fisiológico: 0,9 g de NaCl por 100 g de solução — é isotônico ao plasma sanguíneo."
+        }
+        ];
+
+        let answered = 0, score = 0;
+        let userAns = new Array(qs.length).fill(null);
+
+        function buildQuiz() {
+        const box = document.getElementById('quizBox');
+        box.innerHTML = '';
+        qs.forEach((q, i) => {
+        const d = document.createElement('div');
+        d.className = 'quiz-q'; d.id = 'q' + i;
+        d.innerHTML = `
+        <div class="qn">Questão ${i+1} de ${qs.length}</div>
+        <div class="qt">${q.q}</div>
+        <div class="opts">
+        ${q.opts.map((o, j) => `<button class="opt" onclick="ans(${i},${j},this)">${String.fromCharCode(65+j)}) ${o}</button>`).join('')}
+        </div>
+        <div class="fb" id="fb${i}"></div>
+        `;
+        box.appendChild(d);
+        });
+        updateProg();
+        }
+
+        function ans(qi, oi, btn) {
+        if (userAns[qi] !== null) return;
+        userAns[qi] = oi; answered++;
+        const q = qs[qi];
+        const qd = document.getElementById('q'+qi);
+        qd.querySelectorAll('.opt').forEach(b => b.disabled = true);
+        qd.querySelectorAll('.opt')[q.ans].classList.add('correct');
+        const fb = document.getElementById('fb'+qi);
+        if (oi === q.ans) {
+        score++;
+        btn.classList.add('correct');
+        fb.textContent = '✅ Correto! ' + q.exp;
+        fb.className = 'fb show ok';
+        } else {
+        btn.classList.add('wrong');
+        fb.textContent = '❌ Incorreto. ' + q.exp;
+        fb.className = 'fb show err';
+        }
+        updateProg();
+        if (answered === qs.length) setTimeout(showRes, 900);
+        }
+
+        function updateProg() {
+        document.getElementById('progBar').style.width = (answered / qs.length * 100) + '%';
+        }
+
+        function showRes() {
+        document.getElementById('quizBox').style.display = 'none';
+        document.getElementById('progBar').parentElement.style.display = 'none';
+        const r = document.getElementById('quizRes');
+        r.classList.add('show');
+        document.getElementById('resScore').textContent = score + '/' + qs.length;
+        const p = Math.round(score / qs.length * 100);
+        let msg = p >= 90 ? '💜 Incrível! Você dominou o conteúdo de Soluções!' :
+        p >= 70 ? '✨ Muito bem! Revise os pontos que errou — você está quase lá!' :
+        p >= 50 ? '📖 Bom começo! Releia as fórmulas e tente novamente.' :
+        '🧪 Continue estudando! Revise a matéria com calma e tente de novo.';
+        document.getElementById('resMsg').textContent = msg;
+        }
+
+        function restart() {
+        answered = 0; score = 0;
+        userAns = new Array(qs.length).fill(null);
+        document.getElementById('quizBox').style.display = 'block';
+        document.getElementById('progBar').parentElement.style.display = 'block';
+        document.getElementById('quizRes').classList.remove('show');
+        buildQuiz();
+        document.getElementById('quiz-section').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        buildQuiz();
+
+        // scroll fade-in
+        const obs = new IntersectionObserver(entries => {
+        entries.forEach(e => { if (e.isIntersecting) e.target.style.animationPlayState = 'running'; });
+        }, { threshold: 0.08 });
+        document.querySelectorAll('.topic').forEach(t => { t.style.animationPlayState = 'paused'; obs.observe(t); });
+    </script>
+</body>
+</html>
